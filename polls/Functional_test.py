@@ -15,9 +15,11 @@ class FunctionalTest(TestCase):
         self.browser.get('http://www.google.com.co')
         self.assertIn('Google', self.browser.title)
     """
+    """
     def test_title(self):
         self.browser.get('http://localhost:8000')
         self.assertIn('Busco Ayuda', self.browser.title)
+    """
     """
     def test_registro(self):
         self.browser.get('http://localhost:8000')
@@ -29,12 +31,12 @@ class FunctionalTest(TestCase):
         self.browser.implicitly_wait(1000)
         nombre = self.browser.find_element_by_id('id_nombre')
         self.browser.implicitly_wait(1000)
-        nombre.send_keys('Juan Daniel')
+        nombre.send_keys('Juan Sebastian')
         self.browser.implicitly_wait(1000)
 
         apellidos = self.browser.find_element_by_id('id_apellidos')
         self.browser.implicitly_wait(1000)
-        apellidos.send_keys('Arevalo')
+        apellidos.send_keys('Hernandez')
         self.browser.implicitly_wait(1000)
 
         experiencia = self.browser.find_element_by_id('id_aniosExperiencia')
@@ -51,7 +53,7 @@ class FunctionalTest(TestCase):
 
         correo = self.browser.find_element_by_id('id_correo')
         self.browser.implicitly_wait(1000)
-        correo.send_keys('jd.patino1@uniandes.edu.co')
+        correo.send_keys('js.hernandez1@uniandes.edu.co')
         self.browser.implicitly_wait(1000)
 
         imagen = self.browser.find_element_by_id('id_imagen')
@@ -61,7 +63,7 @@ class FunctionalTest(TestCase):
 
         nombreUsuario = self.browser.find_element_by_id('id_username')
         self.browser.implicitly_wait(1000)
-        nombreUsuario.send_keys('juani')
+        nombreUsuario.send_keys('juans')
         self.browser.implicitly_wait(1000)
 
         clave = self.browser.find_element_by_id('id_password')
@@ -73,10 +75,10 @@ class FunctionalTest(TestCase):
         self.browser.implicitly_wait(1000)
         botonGrabar.click()
         self.browser.implicitly_wait(1000)
-        span=self.browser.find_element(By.XPATH, '//span[text()="Juan Daniel Arevalo"]')
+        span=self.browser.find_element(By.XPATH, '//span[text()="Juan Sebastian Hernandez"]')
         self.browser.implicitly_wait(1000)
 
-        self.assertIn('Juan Daniel Arevalo', span.text)
+        self.assertIn('Juan Sebastian Hernandez', span.text)
     """
     """
     def test_verDetalle(self):
@@ -88,10 +90,10 @@ class FunctionalTest(TestCase):
         self.browser.implicitly_wait(1000)
         self.assertIn('Juan Daniel Arevalo', h2.text)
     """
-    """
+
     def test_login(self):
         self.browser.get('http://localhost:8000')
-        self.browser.implicitly_wait(1000)
+        self.browser.implicitly_wait(500)
         link = self.browser.find_element_by_id('id_login')
         link.click()
 
@@ -105,8 +107,8 @@ class FunctionalTest(TestCase):
         botonIngresar.click()
         self.assertIn('Busco Ayuda', self.browser.title)
 
-    """
-    """
+
+
     def test_RegistrarComentario(self):
         self.browser.get('http://localhost:8000')
         span = self.browser.find_element(By.XPATH, '//span[text()="Juan Daniel Arevalo"]')
@@ -126,18 +128,18 @@ class FunctionalTest(TestCase):
         h2 = self.browser.find_element(By.XPATH, '//h2[text()="Juan Daniel Arevalo"]')
         self.browser.implicitly_wait(1000)
         self.assertIn('Juan Daniel Arevalo', h2.text)
-    """
-    """
+
+
     def test_editar(self):
         self.browser.get('http://localhost:8000/editar/19')
-        self.browser.implicitly_wait(1000)
+        ##self.browser.implicitly_wait(1000)
 
         self.browser.find_element_by_xpath("//select[@id='id_tiposDeServicio']/option[text()='Jardineria']").click()
-        self.browser.implicitly_wait(1000)
+        ##self.browser.implicitly_wait(1000)
 
         botonGrabar = self.browser.find_element_by_id('id_grabar')
-        self.browser.implicitly_wait(1000)
+        ##self.browser.implicitly_wait(1000)
         botonGrabar.click()
-        self.browser.implicitly_wait(1000)
+        ##self.browser.implicitly_wait(1000)
         self.assertIn('Busco Ayuda', self.browser.title)
-    """
+
